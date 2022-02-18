@@ -21,6 +21,7 @@ function UserForm() {
     reset();
     navigate("/users",{replace:true});
   }
+
   
   useEffect(() => {
     return () => {
@@ -44,6 +45,7 @@ function UserForm() {
             name="name"
             value={name}
             onChange={handleInputChange}
+            required
           />
           <p className="help-block"></p>
         </div>
@@ -59,14 +61,16 @@ function UserForm() {
             name="email"
             value={email}
             onChange={handleInputChange}
+            required
           />
           <p className="help-block"></p>
         </div>
         <div className="checkbox terms-checkbox">
           <label>
-            <input type="checkbox" id="terms" /> Acepto los términos y
+            <input type="checkbox" id="terms" required/> Acepto los términos y
             condiciones
           </label>
+          
         </div>
         <div className="action text-right">
             <button type="submit"  className="btn btn-primary btn-block btn-lg">
@@ -74,6 +78,8 @@ function UserForm() {
             </button>
         </div>
       </form>
+      
+      
       <section className="mt-5">
         <h2>¿Deseas ver los usuarios registrados?</h2>
         <NavLink to={"/users"}>
